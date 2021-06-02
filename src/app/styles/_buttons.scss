@@ -1,0 +1,116 @@
+.btn{
+  font-size: $font-size-200;
+  border-radius: $border-radius;
+	display: flex;
+	align-items: center;
+	>div{
+		display: flex;
+		align-items: center;
+	}
+  &:focus, &:active:focus, &:focus:active,
+  &:not(:disabled):not(.disabled):active:focus{
+    outline: none;
+    box-shadow: none;
+  }  
+  &__group{
+    display: flex;
+    align-items: center;
+    .btn{
+      width: auto;
+      margin-left: 1.25rem;
+    }
+  }
+	i{
+		font-size: $font-size-300;
+		margin-right: 0.5rem;
+	}
+}
+
+.btn-default, .btn-default:focus{
+	background: $whitesmoke;
+	color: $black;
+	border-color: $gray-1;
+	font-family: $font-family-semibold;
+	&:disabled{color: $gray-2;}
+	&:hover{
+		background: $whitesmoke-2;
+		border-color: $whitesmoke-2;
+	}
+	&:active, &:focus:active,
+  &:not(:disabled):not(.disabled):active:focus{
+		background: $whitesmoke-3;
+		border-color: $whitesmoke-3;
+	}
+}
+
+.btn-primary{
+	background: $blue;
+	color: $white;
+	border-color: $blue;
+	&:hover{
+		background: $blue-3;
+		border-color: $blue-3;
+	}
+	&:focus, &:active, &:focus:active,
+  &:not(:disabled):not(.disabled):active:focus,
+  &:not(:disabled):not(.disabled):active{
+		background: $blue-3 !important;
+		border-color: $blue-3 !important;
+	}
+	&.disabled, &:disabled{
+		background: $blue;
+		color: $white;
+		border-color: $blue;
+		opacity: 0.45;
+		pointer-events: none;
+	}
+}
+
+.btn-secondary{
+	background: $white;
+	color: $blue;
+	border-color: $blue;
+	&:hover,
+	&:focus, &:active, &:focus:active,
+  &:not(:disabled):not(.disabled):active:focus,
+  &:not(:disabled):not(.disabled):active{
+		background: $blue-2;
+		border-color: $blue;
+    color: $blue;
+	}
+	&.disabled, &:disabled{
+		background: $gray-1;
+		color: $blue;
+		border-color: $blue;
+		opacity: 0.45;
+		pointer-events: none;
+	}
+}
+
+.btn-transparent{
+	background: none;
+	border: none;
+	line-height: 0;
+	padding: 0;
+}
+
+.btn-footer{
+	display: flex;
+	justify-content: center;
+	padding: 0.5rem;
+	column-gap: 0.5rem;
+	position: sticky;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background: white;
+}
+
+.btn-link{
+	color: $blue !important;
+	padding-left: 0;
+	&:focus, &:hover{
+		outline: none;
+		text-decoration: none;
+	}
+}

@@ -1,0 +1,93 @@
+<!-- <h2 class="title-section mb-0">{{ 'homepage.banner.Poc.Title' | translate }}</h2> -->
+<div class="banner">
+  <span>The Poc app:</span>
+</div>
+
+<div *ngIf="false" class="search__home">
+
+  <div class="filter__group">
+    <div class="dropdown">
+      <label class="dropdown__label">{{ 'homepage.selectPortfolio' | translate }}</label>
+      <div class="dropdown ml-auto" ngbDropdown>
+        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>
+          {{ 'homepage.placeholderSelectPortfolio' | translate }}
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" ngbDropdownMenu>
+          <a *ngFor="let option of portfolio$ | async" class="dropdown-item" href="">{{ option.name }}</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown d-none">
+      <label class="dropdown__label">{{ 'homepage.fiscalYear' | translate }}d-none</label>
+      <div class="dropdown ml-auto" ngbDropdown>
+        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>
+          {{ 'homepage.placeholderFiscalYear' | translate }}
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" ngbDropdownMenu>
+          <a *ngFor="let option of fiscalyear$ | async" class="dropdown-item" href="">{{ option.name }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dropdown search__dropdown d-done">
+    <div class=" search__input-container d-none" data-toggle="dropdown">
+      <input type="text" class="search__input" placeholder="{{ 'homepage.placeholdersearch' | translate }}">
+      <i class="icon-search"></i>
+    </div>
+  </div>
+</div>
+
+<div class="table-container">
+
+  <h2 class="table-container__title">
+    {{ 'homepage.advantagedClientPortfolio' | translate }}
+    <span>{{ 'homepage.userRegionIndustry' | translate }}</span>
+  </h2>
+
+  <dx-data-grid id="gridContainer" [dataSource]="dataSource" [allowColumnReordering]="true" [allowColumnResizing]="true"
+    [columnAutoWidth]="true" [showBorders]="true"
+    [remoteOperations]="{ paging: true, filtering: true, sorting: true, grouping: false, summary: false, groupPaging: false }"
+    [wordWrapEnabled]="true" rowTemplate="rowTemplateName">
+    <dxo-load-panel [enabled]="false"></dxo-load-panel>
+    <dxo-scrolling mode="infinite"></dxo-scrolling>
+    <dxo-paging pageSize="15"></dxo-paging>
+    <dxo-filter-row [showOperationChooser]="false" [visible]="false"></dxo-filter-row>
+    <dxo-header-filter [visible]="true"></dxo-header-filter>
+    <dxo-search-panel [visible]="true" [width]="240" placeholder="Search..."></dxo-search-panel>
+    <dxo-column-fixing [enabled]="true"></dxo-column-fixing>
+    
+    <dxi-column dataField="ProductID" caption="ProductID" width="150" [fixed]="true"></dxi-column>
+    <dxi-column caption="Group" alignment="center">
+      <dxi-column dataField="ProductName" caption="ProductName" [fixed]="true"></dxi-column>
+      <dxi-column dataField="SupplierID" caption="SupplierID" [fixed]="true"></dxi-column>
+      <dxi-column dataField="CategoryID" caption="CategoryID" [fixed]="true">
+      </dxi-column>
+    </dxi-column>
+    <dxi-column dataField="QuantityPerUnit" caption="QuantityPerUnit" width="150"></dxi-column>
+    <dxi-column dataField="UnitPrice" caption="UnitPrice" width="120"></dxi-column>
+    <dxi-column dataField="UnitsInStock" caption="UnitsInStock" dataType="date" format="yyyy-MM-dd" width="100">
+    </dxi-column>
+    <dxi-column dataField="UnitsOnOrder" caption="UnitsOnOrder"></dxi-column>
+    <dxi-column dataField="ReorderLevel" caption="ReorderLevel"></dxi-column>
+
+    <tbody *dxTemplate="let client of 'rowTemplateName'">
+      <tr>
+        <td>
+          <a href="#/client/{{client.data.ProductID}}">{{client.data.ProductID}}</a>
+        </td>
+        <td>{{client.data.ProductName}}</td>
+        <td>{{client.data.SupplierID}}</td>
+        <td>{{client.data.CategoryID}}</td>
+        <td>{{client.data.QuantityPerUnit}}</td>
+        <td>{{client.data.UnitPrice}}</td>
+        <td>{{client.data.UnitsInStock}}</td>
+        <td>{{client.data.UnitsOnOrder}}</td>
+        <td>{{client.data.ReorderLevel}}</td>
+      </tr>
+    </tbody>
+  </dx-data-grid>
+</div>

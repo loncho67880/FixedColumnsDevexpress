@@ -1,0 +1,440 @@
+.table-container{
+  @include box-container;
+
+	&__title{
+		font-size: $font-size-400;
+		line-height: 1.5rem;
+		font-family: $font-family-bold;		
+    margin-bottom: 0.25rem;
+		span{
+			font-family: $font-family-normal;
+		}
+	}
+
+  &__filters{
+    padding: 1rem 1.875rem;
+    margin: 0 -1.875rem;
+    border-bottom: 2px solid $green;
+    display: block;
+    @include laptop{
+      display: grid;
+      grid-template-columns: 15.9rem 15.9rem 1fr;
+    }
+    @include tablet{
+      padding: 1rem;
+      margin: 0 -1rem;
+      width: calc(100% + 2rem);
+    }
+&>div{
+      margin-bottom: 1rem;
+      width: 100%;
+      @include laptop{
+        width: auto;
+        .dropdown{
+          width: 100%;
+        }
+      }
+      &:last-child{
+        margin-left: auto;
+      }
+    } 
+  }
+}
+
+.dropdown-toggle-rigth, .form-group-horizontal .dropdown, .form-group-horizontal .dropdown-menu{
+  width: 100%;
+  @include laptop{
+    width: 15.9rem !important;
+  }
+}
+.table-scroll{
+	overflow-x: auto;
+}
+
+.mat-row, 
+.mat-header-row, 
+.mat-footer-row{
+  border: none !important;
+  min-height: 1.25rem !important;
+  align-items: stretch !important;
+}
+
+.mat-cell,
+td,
+.mat-header-cell,
+th{
+	min-width: 6.5rem;
+	border-top: none !important;
+  font-weight: normal;
+	@include laptop{
+		min-width: auto;
+	} 
+}
+
+mat-table,
+table:not(.days),
+.table {  
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  .mat-header-row,
+  thead tr {
+    
+    .mat-header-cell,
+    th {
+      border-bottom: 1px solid $whitesmoke-2 !important;
+      border-top: none;
+      padding: 0.5rem !important;
+      color: $black;
+      line-height: 1.25rem;
+      font-family: $font-family-semibold;
+      font-size: smaller;			
+			align-items: flex-start;
+      position: sticky;
+      top: 0;
+      background: $white;
+      z-index: 10;
+      vertical-align: middle;
+      i {
+        vertical-align: middle;
+        margin-top: 3px;
+        margin-left: 0.25rem;
+        color: $green;
+        cursor: pointer;
+      }
+      &.sort-column{
+        padding-right: 1rem !important;
+        text-align: left;
+      }
+    }
+    .column-tooltip{
+      z-index: 40;
+    }
+  }
+  
+  .mat-row,
+  tbody tr {
+    .mat-cell,
+    td {
+      border-top: none !important;
+      border-bottom: 1px solid $whitesmoke-2 !important;
+      padding:0.5rem !important;
+      font-family: $font-family-normal;
+      line-height: 1.25rem;
+      color: $black;
+      position: relative;
+      max-width: none !important;
+    }
+  }  
+}
+
+
+.table-client{
+	&__title-header{
+		text-align: center;
+		border: 1px solid $blue !important;
+		border-bottom-color: $whitesmoke-2 !important;
+	}
+
+  &.three-columns{
+    .mat-header-row,
+    .mat-row,
+    tbody tr, thead tr{
+      .mat-header-cell, .mat-cell, th, td{
+        &:last-child{
+          border-right: 1px solid $blue;
+        }
+        &:nth-last-child(3){
+          border-left: 1px solid $blue;
+        }
+      }
+      
+    }		
+    .mat-row, tr{
+      &:last-child{
+        .mat-cell, td{
+          &:last-child, &:nth-last-child(2), &:nth-last-child(3){
+            border-bottom: 1px solid $blue !important;
+          }
+        }
+      }
+    }	
+  }
+
+  &.two-columns{
+    .mat-header-row,
+    .mat-row,
+    tbody tr, thead tr{
+      .mat-header-cell, .mat-cell, th, td{
+        &:last-child{
+          border-right: 1px solid $blue;
+        }
+        &:nth-last-child(2){
+          border-left: 1px solid $blue;
+        }
+      }      
+    }		
+
+    .mat-header-row,
+    thead tr{
+      th:first-of-type{
+        border-left: none;
+      }
+    }
+
+    .mat-row, tr{
+      &:last-child{
+        .mat-cell, td{
+          &:last-child, &:nth-last-child(2){
+            border-bottom: 1px solid $blue !important;
+          }
+        }
+      }
+    }	
+  }
+
+  &.one-column{
+    .mat-header-row,
+    .mat-row,
+    tbody tr, thead tr{
+      .mat-header-cell, .mat-cell, th, td{
+        &:last-child{
+          border-right: 1px solid $blue;
+          border-left: 1px solid $blue;
+        }
+      }
+      
+    }		
+    .mat-row, tr{
+      &:last-child{
+        .mat-cell, td{
+          &:last-child{
+            border-bottom: 1px solid $blue !important;
+          }
+        }
+      }
+    }   
+  }
+  
+}
+
+
+/*Angular Material*/
+.mat-elevation-z8 {
+  box-shadow: none;
+}
+
+.mat-form-field-flex {
+  height: calc(1.5rem + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: $font-size-200;
+  border-radius: 0 !important;
+  background: $white !important;
+  border: 1px solid $gray-2;
+  .mat-form-field-infix {
+    border-top: none;
+    padding: 0;
+  }
+}
+
+.mat-focused {
+  .mat-form-field-flex {
+    border-color: $blue;
+  }
+}
+
+.mat-form-field-underline {
+  display: none;
+}
+
+.mat-paginator-container {
+  font-family: $font-family-normal;
+  font-size: $font-size-200;
+  .mat-form-field-wrapper {
+    padding-bottom: 0;
+  }
+  .mat-select-arrow-wrapper {
+    top: 50%;
+    position: relative;
+  }
+  .mat-paginator-page-size-select {
+    margin-top: 0;
+  }
+}
+
+.mat-select-panel{
+  border-radius: 0 !important;
+  .mat-option { 
+    line-height: 1rem !important;
+    height: 2rem !important;
+    padding: 0 0.5rem;
+    &.mat-selected:not(.mat-option-multiple){
+      background: $blue-2;
+      color: $black;
+    }
+  }
+}
+
+.mat-paginator-icon{
+  fill: $blue !important;
+}
+
+.mat-button-disabled{
+	.mat-paginator-icon{
+    opacity: 0.5;
+  } 
+}
+
+
+.table-fees-revenue,
+.table-roles{
+  overflow-x: auto;	
+  background: $white;
+  display: block;
+
+  table{
+    tr{
+      th{
+        font-size: $font-size-100;
+      }
+      td:first-child, th{
+        background: $gray-1;
+      }
+      td:first-child, th:first-child{
+        width: 14%;
+        min-width: 14rem;
+      }     
+    }
+  }
+  &:first-of-type{
+    margin-bottom: 2rem;   
+  }
+  &:last-of-type{
+    tr{
+      th, td{
+        &:nth-child(2), &:nth-child(3), &:nth-child(4){
+          width: 25%; 
+        }
+        &:first-child{
+          width: 10% !important;
+          min-width: 14rem;
+        } 
+      } 
+    }
+  }
+}
+
+.information-source{
+  display: block;
+  font-size: $font-size-100;
+  margin: 0.5rem;
+}
+
+.table-executives{
+  &__header{
+    border: 1px solid $blue !important;
+    border-bottom-color: $whitesmoke-2 !important;
+    background: $blue-2;
+  }
+  tr{
+    td, th{
+      &:nth-child(8){
+        border-left: 1px solid $blue;
+      }
+      &:nth-child(12){
+        border-right: 1px solid $blue;
+      }
+      &:nth-child(n+8):not(:last-of-type){
+        background: $blue-2;
+      }      
+    }
+    &:last-of-type{        
+      td:nth-child(n+8):not(:last-of-type){
+        border-bottom: 1px solid $blue !important;
+      }
+    }
+  }
+  &__actions{
+    display: flex;
+    align-items: center;
+    i{
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: $black;
+    }
+    .icon-delete{
+      color: $red;
+    }
+  }
+}
+
+.cross-board{
+  > div{
+    height: 2.5rem;
+  }
+}
+
+.table-actions{
+  display: inline-flex;
+  position: relative;
+  float: right;
+  column-gap: 0.35rem;
+  i{
+    display: block;
+    margin: 0 !important;
+    font-size: $font-size-100;
+    color: $blue;
+    cursor: pointer;
+  }  
+  .icon-filter{
+    font-size: $font-size-300;
+  }
+  .dropdown-menu{
+    min-width: 10rem !important;
+    padding-bottom: 0;
+  }
+}
+
+.table-acquisitions{
+  .table-actions{
+    width: 100%;
+    justify-content: center;
+    i{
+      font-size: 1.7rem;
+    }
+  }
+  thead{
+    tr{
+      &:first-child{
+        th{
+          border-right: 1px solid $whitesmoke-2;
+          &:last-child{
+            border-right: none;
+          }
+        }
+      }
+      &:last-child{
+        th{
+          vertical-align: bottom;
+          &:nth-child(6n){
+            border-right: 1px solid $whitesmoke-2;
+          }
+        }
+      }
+    }
+  }
+  tbody{
+    tr{
+      td{
+        &:nth-child(6n){
+          border-right: 1px solid $whitesmoke-2;
+        }
+      }
+      &:hover{
+        td{
+          background: $blue-2;
+        }
+      }
+    }
+  }
+}

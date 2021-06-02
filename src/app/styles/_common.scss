@@ -1,0 +1,449 @@
+body{
+  font-family: $font-family-normal;
+  background: $gray-1;  
+  color: $black;
+  font-size: $font-size-200;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+
+}
+
+ul{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+a{
+  color: $blue;
+  &:hover{
+    text-decoration: none;
+    color: $blue-3;
+  }  
+}
+
+i{
+  display: inline-flex;
+  position: relative;
+  &:hover{
+    .custom-tooltip{
+      display: block;
+    }
+  }
+}
+
+p{
+  margin-bottom: 0;
+}
+
+.dropdown{  
+  .dropdown-menu{
+    min-width: 100%;
+    border: 1px solid $gray-2;
+    transform: none;
+    top: 100%;
+    border-radius: 0;
+    box-shadow: $shadow;
+    max-height: 15rem;
+    overflow: auto;
+  }
+
+  .dropdown-item{
+    color: $black;
+    padding: .25rem 1rem;
+    font-size: $font-size-200;
+    &:hover{
+      background: $blue-2;
+    }
+    &:active{
+      color: $black;
+    }
+  }
+
+  .dropdown-toggle{
+    display: flex;
+    align-items: center;
+    border: 1px solid $gray-2;
+    border-radius: 0;
+    width: 100%;
+    position: relative;
+    padding-right: 1.9rem;
+    font-size: $font-size-200;
+    background: $white;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    text-align: left;
+    &::after{
+      font-family: "Poc-icons";
+      content: "\61";
+      color: $blue;
+      border: none;
+      height: 1rem;
+      font-size: $font-size-200;
+      right: 0.5rem;
+      bottom: 50%;
+      transform: translateY(50%);
+      top: auto;
+      position: absolute;
+      cursor: pointer;
+    }
+  }
+
+  &__label{
+    font-size: $font-size-200;
+    line-height: $font-size-200;
+    margin-bottom: 0.375rem;
+    font-family: $font-family-semibold;    
+  }
+
+  &.show{
+    .dropdown-toggle{
+      border-color: $blue;
+    }
+  }
+}
+
+.main-content{
+  padding: 4.875rem 1.875rem 1.25rem;
+  position: relative;
+  overflow-y: auto;
+  flex-grow: 1;
+  @include mobile{
+    padding: 4.875rem 1rem 1.25rem;
+  }
+}
+
+.title-page{
+  font-family: $font-family-bold;
+  font-size: $font-size-500;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .btn{
+    font-family: $font-family-normal;
+  }
+
+  @include tablet{
+    flex-direction: column;
+    align-items: flex-start;
+    .btn{
+      margin-left: auto;
+      margin-top: 1.25rem;
+    }
+  }
+}
+
+.subtitle-page{
+  font-family: $font-family-bold;
+  font-size: $font-size-400;
+  margin-bottom: 1.25rem;
+  display: block;
+}
+
+.title-section{
+  font-size: $font-size-400;
+  font-family: $font-family-normal;
+  margin-bottom: 0.625rem;
+  display: flex;
+  align-items: center;
+  i{
+    color: $green;
+    font-size: $font-size-200;
+    margin-left: 0.5rem;
+  }
+}
+
+.form-group-horizontal{
+  display: flex !important;
+  align-items: center;
+  @include tablet{
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 0.25rem;
+  }
+
+  label{
+    display: block;
+    margin: 0 0.5rem 0 0;
+    white-space: nowrap;
+  }
+}
+
+.form-control{
+  width: 100%;
+  height: calc(1.5em + .75rem + 2px);
+  padding: .375rem .75rem;
+  font-size: $font-size-200;
+  border-radius: 0;
+  border-color: $gray-2;
+
+  &:focus{
+    box-shadow: none;
+    border-color: $blue
+  }
+
+  &__search{
+    position: relative;
+    &::after{
+      font-family: "Poc-icons" !important;
+      content: "\6b";
+      color: $blue;
+      font-size: 1.375rem;
+      margin-right: 0.5rem;
+      position: absolute;
+      top: calc(50% + 1px);
+      transform: translateY(-50%);
+      right: 0;
+    }
+    .form-control{
+      padding-right: 1.875rem;
+    }
+  }
+}
+
+.nav-tabs{
+  display: flex;  
+  border-bottom: 1px solid $whitesmoke-2;
+  @include mobile{
+    flex-direction: column;
+  }
+  .nav-item{
+    padding-right: 1rem;
+    @include mobile{
+      padding: 0;
+    }
+  }
+  .nav-link{
+    border: none;
+    border-bottom: 0.125rem solid transparent;
+    color: $gray;
+    font-family: $font-family-semibold; 
+    padding: 0.5rem 1rem;
+    font-size: $font-size-300;
+    
+    &.active, &:hover{
+      border-bottom-color: $green;
+      color: $black;
+    }
+  }
+}
+
+.tab-pane{
+  padding: 1.875rem 0 1.25rem;
+}
+
+
+.main-collapse{
+  border-top: 1px solid $gray-2;
+  width: 100%;  
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  .title-section{
+    margin-bottom: 0;
+  }
+  i{
+    color: $black;
+    cursor: pointer;
+    font-size: $font-size-500;
+  }
+  @include tablet{
+    flex-wrap: wrap;
+  }
+}
+
+.collapse:not(.modal-executive__position),
+.collapsing:not(.modal-executive__position){
+  padding: 0 !important;
+}
+
+.boxes{
+  width: 100%; 
+  margin-bottom: 1.25rem;
+
+  @include mobile{
+    grid-template-columns: 1fr;
+    row-gap: 1rem;
+  }
+
+  &__title{
+    font-family: $font-family-semibold;
+    font-size: $font-size-400;
+    margin-bottom: 1.25rem;
+    display: block;
+  }
+
+  &__group{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11.5rem, 1fr));
+    column-gap: 1rem;
+    row-gap: 0.5rem;
+  }
+
+  &__details{
+    //width: 30%;
+    color: $white;
+    background: $green;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    label{
+      font-family: $font-family-semibold;
+      margin-bottom: 0;
+      display: block;
+    }
+    span{
+      display: block;
+      font-family: $font-family-normal;
+    }
+    i{
+      font-size: 2.375rem;
+    }
+    &:nth-child(2){
+      background: $blue-5;
+    }
+    &:nth-child(3){
+      background: $blue-4;
+    }    
+    &:nth-child(4){
+      background: $blue;
+    }    
+  }
+
+  &__value{
+    font-size: $font-size-700;
+  }
+}
+
+.custom-tooltip {
+  position: absolute;
+  background: $black;
+  font-size: 13px;
+  color: $white;
+  padding: 8px 8px 10px;
+  border-radius: 3px;
+  display: none;
+  font-style: normal;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 25rem;
+  &:after {
+    content: '';
+    border: 4px solid transparent;
+    border-top-color: $black;
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    height: 8px;
+    transform: translateX(-50%);
+    width: 5px;
+  }
+  &.tooltip-sm{
+    min-width: 15rem;
+  }
+}
+
+
+*{
+  scrollbar-width: thin;
+  scrollbar-color: $gray-2 $gray-1;
+  &::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $gray-1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $gray-2;  
+    border: 1px solid $gray-1;
+  }
+}
+
+//**Checkbox**//
+.mat-pseudo-checkbox{
+  border: 1px solid $whitesmoke-3 !important;
+  border-radius: 4px;  
+  min-width: 1rem;
+  height: 1rem;	
+  background: $white;
+}
+
+.mat-pseudo-checkbox-checked{
+  background: $blue;
+  border: 1px solid $blue !important;
+  border-radius: 4px;  
+  &::after{
+    top: 3px !important;
+    left: 2px !important;
+    width: 0.5rem;
+    border-color: $white !important;
+  }
+}
+
+.required{
+  border-color: $red !important;
+}
+
+.banner{
+  margin: -1.25rem -1.875rem 1.25rem;
+  background-color: $black;
+  padding: 1.875rem;
+  background-image: url(../../assets/images/Poc-Banner.png);
+  background-repeat: no-repeat; 
+  background-size: contain;
+  background-position: top center;
+  color: $white;  
+  border-top: 1px solid $gray-1;
+
+  @include laptop{
+    background-position: right center;
+  }
+
+  p, span{
+    margin: 0;
+    text-shadow: 0px 0px 10px rgba(0,0,0, 1);
+    @include laptop{
+      max-width: 46.25rem;
+      width: 50%;
+    }
+  }
+  span{
+    font-size: $font-size-400;
+    display: block;
+    margin-bottom: 0.5rem;
+    margin-top: 17%;
+    @include laptop{
+      margin-top: 0;
+    }
+  }
+}
+
+.dropRelationShip{
+  min-width: 221px !important;
+}
+
+.bs-datepicker-head{
+  background-color: $blue !important;
+}
+
+.bs-datepicker-body{
+  .week{
+    span{
+      color: $blue !important;
+    }
+  }
+  .selected{
+    background-color: $blue !important;
+  }
+}

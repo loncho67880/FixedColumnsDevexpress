@@ -1,0 +1,132 @@
+.main-header{
+  background: $black;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  max-height: 3.625rem;
+  min-height: 3.625rem;
+  position: fixed;  
+  top: 0;
+  left: 0;
+  z-index: 1001;
+  width: 100%;
+
+  @include laptop{
+    padding: 0 1.875rem;
+  }  
+  @include mobile{
+    max-height: none;
+  }
+
+  &__logo{
+    height: 1.25rem;
+    margin-right: 1.125rem;
+    @include laptop{
+      height: 1.75rem;
+    } 
+  }
+
+  &__title{
+    font-weight: normal;
+    margin: 0;
+    font-size: $font-size-300;    
+    display: inline-block;
+    padding: 2px 0.5rem;
+    border-left: 1px solid $white;
+    color: $white;
+    @include laptop{
+      font-size: $font-size-600;
+    }
+  }
+
+  &__nav{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-grow: 1;
+  }
+
+  &__options{
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    li{
+      margin-left: 0.7rem;
+      position: relative;
+      display: flex;
+      align-items: center;
+      @include laptop{
+        margin-left: 1.5rem;
+      }
+      >a, .dropdown {
+        margin-left: 0.8rem;        
+        color: $white;
+        border-bottom: 4px solid transparent;
+        padding: 1rem 0;
+        display: flex;
+        align-items: center;
+        span{
+          margin-left: 0.5rem;
+        }
+        @include laptop{
+          margin-left: 1rem;
+        }
+        .dropdown-menu{
+          left: auto !important;
+          right: 0;
+          margin-top: 0.5rem;
+        }
+      }
+      .dropdown-item{
+        margin-left: 0;
+        border-bottom: none;
+      }
+      &:before{
+        content: '';
+        height: 1rem;
+        position: absolute;
+        top: 1.25rem;
+        left: 0;
+        border-left: 1px solid $white;
+      }
+      &:hover, &.active{
+        a{
+          border-bottom-color: $green;
+        }
+      }
+    }
+  }
+
+
+  &__dropdown{    
+    .btn{
+      color: $white;
+      padding: 0;
+      border: none;
+    }
+    .dropdown-toggle{
+      background: none !important;
+      border: none !important;
+      &::after{
+        color: $white !important;
+      }
+    }
+  }
+
+  &__user{
+    color: $white;
+    margin-left: 0;
+    background: $gray;    
+    border-radius: 50%;
+    height: 2.25rem;
+    width: 2.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-family-semibold;
+    cursor: pointer;
+    @include laptop{
+      margin-left: 2rem;
+    }
+  }
+}

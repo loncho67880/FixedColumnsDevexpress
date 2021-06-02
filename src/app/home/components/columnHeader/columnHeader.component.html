@@ -1,0 +1,28 @@
+<div (click)="changeVisibleColumnOrder(columnName)">{{columnTranslate}}
+</div>
+<span class="table-actions">
+    <i class="icon-info-w" *ngIf="columnName === 'fees'" (mouseover)="clickFilter('fees')">
+        <span class="custom-tooltip">
+            {{ 'homepage.table.auditFeesTooltip' | translate }}
+        </span>
+    </i>
+    <app-arrow (changeTypeEmmiter)="changeOrderType()" [arrowVisible]="columnVisible" [arrowType]="columnType">
+    </app-arrow>
+    <div class="dropdown" dropdown>
+        <button type="button" class="btn-transparent" dropdownToggle (click)="clickFilter(columnName)"
+            aria-controls="dropdown-basic">
+            <i class="icon-filter"></i>
+        </button>
+        <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+            <mat-selection-list #checkItems>
+                <mat-list-option *ngFor="let column of listFilter" [selected]="filterSelected">
+                    {{ column }}
+                </mat-list-option>
+            </mat-selection-list>
+            <div class="btn-footer">
+                <button class="btn btn-primary">Ok</button>
+                <button class="btn btn-secondary">Cancel</button>
+            </div>
+        </ul>
+    </div>
+</span>

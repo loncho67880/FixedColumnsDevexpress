@@ -1,0 +1,70 @@
+.contact-us{
+  @include laptop{
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    column-gap: 1.25rem;
+  }  
+
+  &__left{
+    @include box-container;
+  }
+
+  &__right{
+    @include box-container;
+    .form-group{
+      display: flex;
+      column-gap: 1rem;
+      margin-bottom: 1.25rem;
+      label{
+        display: block;
+        margin-bottom: 0;
+        font-family: $font-family-semibold;
+      }
+      i{
+        font-size: $font-size-400;
+        color: $green;
+        margin-top: 0.3rem;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__paragraph{
+    margin-bottom: 1.25rem;
+    a{
+      text-decoration: underline;
+      font-family: $font-family-semibold;
+    }
+    span{
+      font-family: $font-family-semibold;
+    }
+  }
+
+  table{
+    margin-bottom: 1.25rem;
+    tr{
+      th{
+        font-size: $font-size-200;
+        width: 35%;
+        &:nth-child(2){
+          width: 40%;
+        }
+        &:last-child{
+          width: 25%;
+        }
+      }
+      td:first-child{
+        font-family: $font-family-semibold;
+      }
+    }
+  }
+
+  .title-section{
+    font-family: $font-family-semibold;
+    font-size: $font-size-200;
+  }
+
+  .table-scroll{
+    margin-bottom: 1.25rem;
+  }
+}

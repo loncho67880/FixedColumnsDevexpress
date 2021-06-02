@@ -1,0 +1,501 @@
+.client{
+  @include box-container;
+  margin: 0 -1.875rem 1rem;
+
+  
+  @include mobile{
+    margin: 0 -1rem 1rem;
+  }
+
+  &__profile-container{
+    margin: 0 0 1.25rem;    
+  }
+
+  &__profile{
+    display: grid;    
+    grid-template-columns: repeat(auto-fill, minmax(21.5rem, 1fr));
+    column-gap: 1rem;
+    row-gap: 0.5rem;
+    background: $white;
+    padding: 1rem;
+    margin-bottom: 1.25rem;
+    @include tablet{
+      grid-template-columns: 1fr;
+    }
+    @include desktop{
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__profile-item{    
+    column-gap: 0.5rem;
+    align-items: center;
+    min-height: 3rem;    
+    label{      
+      color: $gray-3;
+      margin-bottom: 0;
+      font-size: $font-size-100;
+      display: flex;
+      align-items: center;
+      i{
+        margin-left: 0.5rem;
+        cursor: pointer;
+        font-size: $font-size-300;
+        color: $black;
+      }
+    }
+    span{
+      font-family: $font-family-semibold;
+    }
+  }
+
+  &__snapshot{
+    display: block;
+
+    @include desktop{
+      display: grid;
+      grid-template-columns: 1fr 25%;
+      column-gap: 1.875rem;
+      row-gap: 1.25rem;
+    }
+    table{
+      margin-bottom: 1.25rem !important;
+      thead{
+        tr{        
+          th{
+            border-top: 1px solid $whitesmoke-2 !important;
+            color: $gray-3;
+            font-size: $font-size-100;
+            &:first-child{
+              border-left: 1px solid $whitesmoke-2 !important;
+            }
+            &:last-child{
+              border-right: 1px solid $whitesmoke-2 !important;
+              border-left: 1px solid $whitesmoke-2 !important;
+            }
+          }
+        }
+      }
+      tbody{
+        tr{
+          td{
+            font-size: $font-size-100;
+            &:first-child{
+              border-left: 1px solid $whitesmoke-2 !important;
+            }
+            &:last-child{
+              border-right: 1px solid $whitesmoke-2 !important;
+              border-left: 1px solid $whitesmoke-2 !important;
+              width: 6rem !important;
+            }
+          }
+        }
+      }
+      .table-actions{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-around;
+        i{
+          color: $blue;
+          font-size: 1.7rem;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  &__snapshot-update{
+    display: flex;
+    column-gap: 1rem; 
+    font-size: $font-size-050;
+    margin-top: -1rem;
+    label{
+      color: $gray;
+    }
+  }
+
+  &__detail-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10.5rem, 22rem));
+    column-gap: 1.25rem;
+    row-gap: 1rem;
+    margin-bottom: 1.25rem;
+    @include tablet{
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__paragrahp{
+    margin-bottom: 0;
+    &:last-of-type{
+      margin-bottom: 1.25rem;
+    }
+  }
+
+  &__link{
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  &__snapshot-right{
+    border: 1px solid $gray-2;  
+    padding: 1rem;
+    margin-bottom: 1.25rem;
+    .title-border{
+      border-bottom: 1px solid $gray-2;
+      margin: -1rem -1rem 1rem;
+      padding: 1rem;
+    }
+    .title-section{
+      margin-bottom: 1rem;
+    }
+    .form-group{
+      span{
+        display: block;
+        font-family: $font-family-semibold;
+      }
+    }
+  }
+
+  &__collapse{
+    margin-bottom: 1.875rem;
+  }
+
+  &__tabs-container{
+    display: block;
+    .nav{
+      flex-grow: 1;
+    }
+    @include laptop{
+      display: flex;
+    }
+  }
+
+  &__tabs-button{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-top: 1.25rem;
+    @include laptop{
+      padding-top: 0;
+      border-bottom: 1px solid $whitesmoke-2;
+    }
+  }
+}
+
+.client-issue{
+  table{
+    tr{
+      th, td{
+        &:nth-child(3), &:nth-child(6){
+          width: 12rem;
+          border-right: 1px solid $whitesmoke-2 !important;
+        }
+      }
+    }
+  }
+}
+
+.client-comment{
+  display: block;
+  outline: 1px solid $gray-2;
+  margin-top: 1.25rem;
+
+  &__details{
+    flex-grow: 1;
+    padding: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    
+    .form-group{
+      display: flex;
+      column-gap: 0.5rem;
+      background: $gray-1;
+      padding: 0.5rem;
+      margin: 0;
+      @media screen and (min-width: $desktop) and (max-width: 1653px){
+        grid-template-columns: 4.125rem 1fr;
+      }
+      @include tablet{
+        display: flex;
+      }
+      label{
+        font-size: $font-size-200;
+        font-family: $font-family-bold;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__left,
+  &__right{
+    width: 100%;
+    padding: 0.5rem 1rem;
+    @include laptop{
+      width: 50%;
+    }
+  }
+
+  &__right{
+    padding-right: 0.5rem;
+  }
+
+  &__left{
+    border-bottom: 1px solid $gray-2; 
+    padding-left: 0.5rem;   
+    @include laptop{
+      border-right: 1px solid $gray-2;
+      border-bottom: none;
+    }
+  }
+
+  &__header{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    .form-group{
+      min-width: 50%;
+      margin-left: 1rem;
+      &:first-child{
+        margin-left: 0;
+      }
+      @include mobile{
+        margin: 0 0 0.5rem;
+        width: 100%;
+      } 
+    }
+    @include mobile{
+      flex-direction: column;
+    } 
+  }
+
+  &__title{
+    font-size: $font-size-400;
+    margin: 0;
+    font-family: $font-family-semibold;
+    @include mobile{
+      margin-bottom: 1rem;
+    }
+  }
+
+    &__subtitle{
+    font-size: $font-size-200;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+    font-family: $font-family-semibold;
+  }
+
+  &__actions{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 1rem;
+    padding: 0.25rem 0.8rem;
+    border-top: 1px solid $gray-2;
+    .form-group{
+      font-size: $font-size-100;
+      align-items: center;
+      label{
+        font-family: $font-family-normal;
+        color: $gray;
+      }
+    }
+    i{
+      font-size: 1.7rem;
+      color: $blue;
+      cursor: pointer;
+      &:last-child{
+        margin-left: 1rem;
+      }
+    }
+  }
+}
+
+.client-comment{
+  &__paragraph{
+    margin-bottom: 1.25rem;
+  }
+
+  &__author-date{
+    display: flex;
+    align-items: center;    
+    justify-content: start;
+    flex-grow: 1;
+    @include mobile{
+      display: block;
+    }
+    label{
+      font-size: $font-size-200;
+      font-family: $font-family-bold;
+      margin-bottom: 0;
+      margin-right: 1rem;
+    }
+    .form-group{
+      display: flex;
+      margin-right: 1rem;
+      margin-bottom: 0;
+      @include mobile{
+        margin: 0 0 0.5rem;
+      }
+    }
+    @include tablet{
+      width: 100%;
+      margin: 0 0 1rem;
+    }
+  }
+
+  &__actions{
+    @include tablet{
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.client-notes{
+  display: flex;
+  flex-wrap: wrap;
+  border-top: none;
+  min-height: 10rem;
+  
+  @include laptop{
+    flex-wrap: nowrap;
+  }
+
+  @include tablet{
+    display: block;
+  }
+
+  &__add{
+    padding: 1.25rem 1rem;
+    width: 50%;    
+    background: $blue-2;
+    overflow-y: auto;
+    max-height: 30rem;
+    @include laptop{
+      width: 25%;
+      min-width: 20rem;
+    }
+    @include tablet{
+      width: 100%;
+      overflow: visible;
+      max-height: none;
+    }
+
+    .btn{
+      margin: auto;
+    }
+  }
+
+  &__description{    
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: 30rem;
+    order: 3;
+    @include laptop{
+      order: 2;
+      padding: 1.25rem;
+    }
+    @include tablet{
+      overflow: visible;
+      max-height: none;
+      padding: 0;
+    }
+    .form-group{
+      display: grid;
+      grid-template-columns: 10rem 1fr;
+      column-gap: 1rem;
+      label{
+        font-size: $font-size-100;
+        font-family: $font-family-semibold;
+      }
+      @include mobile{
+        display: block;
+      }
+    }
+  }
+
+  &__additional-info{
+    padding: 1.25rem 1rem;
+    min-width: 15rem;
+    order: 2;
+    width: 50%;
+    @include laptop{
+      order: 3;
+      width: auto;
+    }
+    @include tablet{
+      width: 100%;
+    }    
+    .form-group-highlight{
+      background: $blue-2;
+      padding: 1rem;
+    }    
+    .form-group{
+      label{
+        font-family: $font-family-semibold;
+        font-size: $font-size-100;
+        margin: 0;
+      }
+      span{
+        display: block;
+      }
+    }
+  }
+
+  &__footer{
+    display: flex;
+    justify-content: flex-end;
+    border-top: 2px solid $green;
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    .btn{
+      margin-left: 0.5rem;
+    }
+  }
+
+  &__note{
+    width: 100%;
+    background: $white;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    margin-top: 1.25rem;
+    border: 1px solid $white;
+    &--viewed{
+      box-shadow: $shadow;
+      border: 1px solid $blue;
+    }
+  }
+
+  &__tilte{
+    padding-right: 1rem;
+    width: calc(100% - 6rem);
+    h3{
+      font-size: $font-size-400;
+      font-family: $font-family-semibold;
+      margin: 0;
+      text-overflow: ellipsis;
+      display: block;
+      margin-bottom: 0.25rem;      
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    span{
+      display: block;
+      font-size: $font-size-100;
+    }
+  }
+
+  &__date{
+    text-align: right;
+    min-width: 6rem;
+    span{
+      display: block;
+      font-size: $font-size-100;
+      white-space: nowrap;
+    }
+  }
+
+}

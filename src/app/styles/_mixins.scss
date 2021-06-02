@@ -1,0 +1,40 @@
+$mobile:    520px;
+$tablet:    700px;
+$laptop:    1140px;
+$desktop:   1400px;
+
+
+@mixin mobile {
+  @media screen and (max-width: $mobile){
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: $tablet){
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media screen and (min-width: $laptop){
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: $desktop){
+    @content;
+  }
+}
+
+
+@mixin box-container {
+  background: $white;
+  padding: 1.25rem 1.875rem;
+  margin-bottom: 1.25rem;
+  box-shadow: $shadow;
+  @include tablet{
+    padding: 1rem;
+  }
+}

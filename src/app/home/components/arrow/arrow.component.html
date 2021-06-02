@@ -1,0 +1,3 @@
+<div *ngIf="_arrowVisible">
+    <i (click)="changeOrderType()" [ngClass]="{'icon-arrow-down': _arrowType == 'ASC', 'icon-arrow-up': _arrowType == 'DESC'}"></i>
+</div>
