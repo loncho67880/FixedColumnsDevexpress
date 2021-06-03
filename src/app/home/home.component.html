@@ -51,7 +51,7 @@
   <dx-data-grid id="gridContainer" [dataSource]="dataSource" [allowColumnReordering]="true" [allowColumnResizing]="true"
     [columnAutoWidth]="true" [showBorders]="true"
     [remoteOperations]="{ paging: true, filtering: true, sorting: true, grouping: false, summary: false, groupPaging: false }"
-    [wordWrapEnabled]="true" rowTemplate="rowTemplateName">
+    [wordWrapEnabled]="true">
     <dxo-load-panel [enabled]="false"></dxo-load-panel>
     <dxo-scrolling mode="infinite"></dxo-scrolling>
     <dxo-paging pageSize="15"></dxo-paging>
@@ -60,8 +60,8 @@
     <dxo-search-panel [visible]="true" [width]="240" placeholder="Search..."></dxo-search-panel>
     <dxo-column-fixing [enabled]="true"></dxo-column-fixing>
     
-    <dxi-column dataField="ProductID" caption="ProductID" width="150" [fixed]="true"></dxi-column>
-    <dxi-column caption="Group" alignment="center">
+    <dxi-column dataField="ProductID" caption="ProductID" width="150" cellTemplate="idCellTemplate" [fixed]="true"></dxi-column>
+    <dxi-column caption="Group" alignment="center" [fixed]="true">
       <dxi-column dataField="ProductName" caption="ProductName" [fixed]="true"></dxi-column>
       <dxi-column dataField="SupplierID" caption="SupplierID" [fixed]="true"></dxi-column>
       <dxi-column dataField="CategoryID" caption="CategoryID" [fixed]="true">
@@ -74,20 +74,8 @@
     <dxi-column dataField="UnitsOnOrder" caption="UnitsOnOrder"></dxi-column>
     <dxi-column dataField="ReorderLevel" caption="ReorderLevel"></dxi-column>
 
-    <tbody *dxTemplate="let client of 'rowTemplateName'">
-      <tr>
-        <td>
-          <a href="#/client/{{client.data.ProductID}}">{{client.data.ProductID}}</a>
-        </td>
-        <td>{{client.data.ProductName}}</td>
-        <td>{{client.data.SupplierID}}</td>
-        <td>{{client.data.CategoryID}}</td>
-        <td>{{client.data.QuantityPerUnit}}</td>
-        <td>{{client.data.UnitPrice}}</td>
-        <td>{{client.data.UnitsInStock}}</td>
-        <td>{{client.data.UnitsOnOrder}}</td>
-        <td>{{client.data.ReorderLevel}}</td>
-      </tr>
-    </tbody>
+    <div *dxTemplate="let client of 'idCellTemplate'">
+      <a href="#/client/{{client.data.ProductID}}">{{client.data.ProductID}}</a>
+    </div>
   </dx-data-grid>
 </div>
